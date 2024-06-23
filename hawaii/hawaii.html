@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .title {
+            display: flex;
+            margin-top: 100px;
+        }
+
+        .jp_Title {
+            margin: 7% 0 0 20%;
+            font-size: 30px;
+        }
+
+        .en_Title {
+            position: absolute;
+            left: 40%;
+            font-size: 150px;
+        }
+
+        .main_Content {
+            display: flex;
+        }
+
+        .main_Content_Img {
+            display: block;
+            width: 60%;
+
+        }
+
+        .main_Content_Text {
+            margin: auto;
+            writing-mode: vertical-rl;
+        }
+
+        .introduces {
+            background-color: #fffaf9;
+        }
+
+        .introduce {
+            width: 1200px;
+            display: flex;
+            margin: auto;
+        }
+
+        .introduce_Pic {
+            width: 600px;
+            height: 400px;
+            border-radius: 10px;
+            position: relative;
+            bottom: 120px;
+        }
+
+        .introduce_Text {
+            margin: 80px;
+        }
+
+        .introduce_Text_Title {
+            margin-bottom: 30px;
+            font-weight: bold;
+            font-size: 30px;
+        }
+
+        .introduce_Text_Content {
+            color: rgb(44, 44, 44);
+        }
+        .introduces_Title{
+            width: 1200px;
+            margin: auto;
+            font-size: 60px;
+        }
+        .orange_word{
+            color: rgb(255, 60, 0);
+        }
+        .introduce_cards{
+            width: 1200px;
+            display: flex;
+        }
+        .introduce_card:nth-child(1){
+            background-image: url("/hawaii/introduce-link1.jpg");
+        }
+        .introduce_card:nth-child(2){
+            background-image: url("introduce-link2.jpg");
+        }
+        .introduce_card:nth-child(3){
+            background-image: url(introduce-link3.jpg);
+        }
+        
+    </style>
+</head>
+
+<body>
+    <div class="title">
+        <p class="jp_Title">
+            ハワイを想うことは、<br>
+            ハワイの未来を創ること。
+        </p>
+        <p class="en_Title">
+            Re-Imagine<br>
+            Hawai ‘i
+        </p>
+    </div>
+    <div class="main_Content">
+        <img class="main_Content_Img" src="/hawaii/header.jpg" alt="">
+        <p class="main_Content_Text">
+            美しい楽園ハワイは、永遠ではありません。<br>
+            山から海まで、ハワイに生きる美しい自然や文化に<br>
+            「マラマ = 思いやりの心」を持って接すること。<br>
+            レスポンシブル・ツーリズムは、そんな思いやりの心を<br>
+            旅の中で実践していく、新しい観光のカタチです。<br>
+            ハワイが何十年後も、何百年後も、素晴らしい楽園であるよう<br>
+            旅行者のみなさんだからできることがあります。<br>
+        </p>
+    </div>
+    <div class="introduces">
+        <div class="introduce">
+            <img class="introduce_Pic" src="/hawaii/introduce.jpg" alt="">
+            <div class="introduce_Text">
+                <p class="introduce_Text_Title">
+                    美しいハワイを<br>
+                    未来へとつなぐために<br>
+                    わたしたちができること
+                </p>
+                <p class="introduce_Text_Content">
+                    ハワイは世界の絶滅危惧種の宝庫と呼ばれるほど、貴重な生物がたくさん生息しています。ウミガメ、イルカ、クジラ、サンゴ礁。これらを守るためにも、知ってもらいたいことやルールがあります。これからは旅行者にも、ハワイの島々の自然や文化を守り、現地住民が大切にする場所を敬い、美しいハワイを未来へつなげていく行動が求められます。<br>
+                    「レスポンシブル・ツーリズム」一緒にはじめませんか。
+                </p>
+            </div>
+        </div>
+        <p class="introduces_Title">
+            What We Can Do to<br>
+            <span class="orange_word">Keep Hawai‘i Beautiful<br></span>
+            for the Future.
+        </p>
+        <div class="introduce_cards">
+            <div class="introduce_card">
+                <a href="#">
+                    <p>
+                        責任ある旅行“レスポンシブル・ツーリズム”について
+                    </p>
+                    <p>詳しく見る</p>
+                    <p>WHAT IS “RESPONSIBLE TOURISM”</p>
+            </div> 
+        </div>
+        <div class="introduce_cards">
+            <div class="introduce_card">
+                <a href="#">
+                    <p>
+					ハワイ独自の取り組み“アロハプラスチャレンジ”について
+                    </p>
+                    <p>詳しく見る</p>
+                    <p>ABOUT “ALOHA + CHALLENGE”</p>
+            </div> 
+        </div>
+        <div class="introduce_cards">
+            <div class="introduce_card">
+                <a href="#">
+                    <p>
+						ハワイ州観光局からのメッセージ
+                    </p>
+                    <p>詳しく見る</p>
+                    <p>
+                    ハワイ州観光局からのメッセージ
+                    </p>
+            </div> 
+        </div>
+    </div>
+
+</body>
+
+</html>
