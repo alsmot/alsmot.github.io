@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>猜數字遊戲</title>
+</head>
+<body>
+    <div>終極密碼</div>
+    <div id="hint"></div>
+    <input type="number" id="input">
+    <button id="guessbtn">猜數字</button>
+    <button id="resetbtn">重新開始</button>
+    <script>
+        let guess =document.getElementById('guessbtn')
+        let reset =document.getElementById('resetbtn')
+        guess.addEventListener('click',guessNumber)
+        reset.addEventListener('click',resetGame)
+        let randomNumber = Math.floor(Math.random() * 100) + 1;
+        let min=1;
+        let max=100;
+        function guessNumber() {
+            let guess = document.getElementById('input').value;
+            console.log(guess)
+            if (guess < 1 || guess > 100 || !guess) {
+                document.getElementById('hint').innerText = "請輸入一個1到100之間的數字。";
+                return;
+            }
+            if (guess < randomNumber) {
+                document.getElementById('hint').innerText = "你猜的數字太小了！新的範圍是 " + guess + " 到 " + max;
+                min = parseInt(guess);
+            } else if (guess > randomNumber) {
+                document.getElementById('hint').innerText = "你猜的數字太大了！新的範圍是 " + min + " 到 " + guess;
+                max = parseInt(guess);
+            } else {
+                document.getElementById('hint').innerText = "恭喜你，你猜對了！神秘數字就是 " + randomNumber;
+            }
+        }
+
+
+        function resetGame() {
+            min = 1;
+            max = 100;
+            let randomNumber = Math.floor(Math.random() * 100) + 1;
+            document.getElementById('hint').innerText = '';
+            document.getElementById('input').value = '';
+        }
+    
+    </script>
+</body>
+</html>
