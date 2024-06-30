@@ -40,21 +40,20 @@
         let max = 100;
         function guessNumber() {
             let guess = document.getElementById('input').value;
-            let x = document.getElementById('hint').innerText;
-            //為何min與max不會隨著if裡的內容改變，只跟隨最外層的min與max
+            let x = document.getElementById('hint');
             if (guess < 1 || guess > 100 || !guess) {
-                x = "請輸入一個"+min+"到"+max+"之間的數字。";
+                x.innerText = "請輸入一個"+min+"到"+max+"之間的數字。";
             }
             else if (guess < randomNumber && guess > min) {
-                X = "你猜的數字太小了！新的範圍是 " + guess + " 到 " + max;
+                x.innerText = "你猜的數字太小了！新的範圍是 " + guess + " 到 " + max;
                 min = parseInt(guess);
             }
             else if (guess > randomNumber && guess < max) {
-                x = "你猜的數字太大了！新的範圍是 " + min + " 到 " + guess;
+                x.innerText = "你猜的數字太大了！新的範圍是 " + min + " 到 " + guess;
                 max = parseInt(guess);
             }
-            else {
-                x = "恭喜你，你猜對了！神秘數字就是 " + randomNumber;
+            else if(guess == randomNumber){
+                x.innerText = "恭喜你，你猜對了！神秘數字就是 " + randomNumber;
             }
         }
 
