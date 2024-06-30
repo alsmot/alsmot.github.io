@@ -1,16 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>猜數字遊戲</title>
     <style>
-        *{
+        * {
             margin: 0;
             padding: 0;
-            
+
         }
-        .window{
+
+        .window {
             width: 300px;
             height: 100px;
             border: 1px solid black;
@@ -21,36 +23,38 @@
     </style>
 </head>
 <body>
-        <div class="window">
-            <div>終極密碼</div>
-            <div id="hint"></div>
-            <input type="number" id="input">
-            <button id="guessbtn">猜數字</button>
-            <button id="resetbtn">重新開始</button>
-        </div>
+    <div class="window">
+        <div>終極密碼</div>
+        <div id="hint"></div>
+        <input type="number" id="input">
+        <button id="guessbtn">猜數字</button>
+        <button id="resetbtn">重新開始</button>
+    </div>
     <script>
-        let guess =document.getElementById('guessbtn')
-        let reset =document.getElementById('resetbtn')
-        guess.addEventListener('click',guessNumber)
-        reset.addEventListener('click',resetGame)
+        let guess = document.getElementById('guessbtn')
+        let reset = document.getElementById('resetbtn')
+        guess.addEventListener('click', guessNumber)
+        reset.addEventListener('click', resetGame)
         let randomNumber = Math.floor(Math.random() * 100) + 1;
-        let min=1;
-        let max=100;
+        let min = 1;
+        let max = 100;
         function guessNumber() {
             let guess = document.getElementById('input').value;
-            console.log(guess)
+            let x = document.getElementById('hint').innerText;
+            //為何min與max不會隨著if裡的內容改變，只跟隨最外層的min與max
             if (guess < 1 || guess > 100 || !guess) {
-                document.getElementById('hint').innerText = "請輸入一個1到100之間的數字。";
-                return;
+                x = "請輸入一個"+min+"到"+max+"之間的數字。";
             }
-            if (guess < randomNumber) {
-                document.getElementById('hint').innerText = "你猜的數字太小了！新的範圍是 " + guess + " 到 " + max;
+            else if (guess < randomNumber && guess > min) {
+                X = "你猜的數字太小了！新的範圍是 " + guess + " 到 " + max;
                 min = parseInt(guess);
-            } else if (guess > randomNumber) {
-                document.getElementById('hint').innerText = "你猜的數字太大了！新的範圍是 " + min + " 到 " + guess;
+            }
+            else if (guess > randomNumber && guess < max) {
+                x = "你猜的數字太大了！新的範圍是 " + min + " 到 " + guess;
                 max = parseInt(guess);
-            } else {
-                document.getElementById('hint').innerText = "恭喜你，你猜對了！神秘數字就是 " + randomNumber;
+            }
+            else {
+                x = "恭喜你，你猜對了！神秘數字就是 " + randomNumber;
             }
         }
 
@@ -62,7 +66,8 @@
             document.getElementById('hint').innerText = '';
             document.getElementById('input').value = '';
         }
-    
+
     </script>
 </body>
+
 </html>
