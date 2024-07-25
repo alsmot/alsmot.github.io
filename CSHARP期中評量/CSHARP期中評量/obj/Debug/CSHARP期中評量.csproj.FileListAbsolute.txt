@@ -1,0 +1,14 @@
+C:\Users\Almost\Desktop\CS作業\CSHARP期中評量\CSHARP期中評量\bin\Debug\CSHARP期中評量.exe.config
+C:\Users\Almost\Desktop\CS作業\CSHARP期中評量\CSHARP期中評量\bin\Debug\CSHARP期中評量.exe
+C:\Users\Almost\Desktop\CS作業\CSHARP期中評量\CSHARP期中評量\bin\Debug\CSHARP期中評量.pdb
+C:\Users\Almost\Desktop\CS作業\CSHARP期中評量\CSHARP期中評量\obj\Debug\CSHARP期中評量.csproj.AssemblyReference.cache
+C:\Users\Almost\Desktop\CS作業\CSHARP期中評量\CSHARP期中評量\obj\Debug\CSHARP期中評量.csproj.CoreCompileInputs.cache
+C:\Users\Almost\Desktop\CS作業\CSHARP期中評量\CSHARP期中評量\obj\Debug\CSHARP期中評量.exe
+C:\Users\Almost\Desktop\CS作業\CSHARP期中評量\CSHARP期中評量\obj\Debug\CSHARP期中評量.pdb
+C:\Users\User\Desktop\CS作業\CSHARP期中評量\CSHARP期中評量\bin\Debug\CSHARP期中評量.exe.config
+C:\Users\User\Desktop\CS作業\CSHARP期中評量\CSHARP期中評量\bin\Debug\CSHARP期中評量.exe
+C:\Users\User\Desktop\CS作業\CSHARP期中評量\CSHARP期中評量\bin\Debug\CSHARP期中評量.pdb
+C:\Users\User\Desktop\CS作業\CSHARP期中評量\CSHARP期中評量\obj\Debug\CSHARP期中評量.csproj.AssemblyReference.cache
+C:\Users\User\Desktop\CS作業\CSHARP期中評量\CSHARP期中評量\obj\Debug\CSHARP期中評量.csproj.CoreCompileInputs.cache
+C:\Users\User\Desktop\CS作業\CSHARP期中評量\CSHARP期中評量\obj\Debug\CSHARP期中評量.exe
+C:\Users\User\Desktop\CS作業\CSHARP期中評量\CSHARP期中評量\obj\Debug\CSHARP期中評量.pdb
