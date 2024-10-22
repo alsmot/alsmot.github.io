@@ -16,19 +16,18 @@ document.addEventListener('DOMContentLoaded', function () {
         "September",
         "October",
         "November",
-        "December",
+        "December"
     ];
-
+    
     //生成當月的日期
     function generateCalendar(year, month) {
         calendarElement.innerHTML = '';
         const firstDay = new Date(year, month, 1).getDay();
         const lastDay = new Date(year, month + 1, 0).getDate();
         const todos = loadTodos();
-
         
         let dateRow = document.createElement('div');
-        dateRow.classList.add('row', 'g-0',);
+        dateRow.classList.add('row', 'g-0');
 
         // 每個月1號以前的格子
         for (let i = 0; i < firstDay; i++) {
@@ -48,39 +47,35 @@ document.addEventListener('DOMContentLoaded', function () {
             //生成每一天
             const mainday = document.createElement('div');
             mainday.classList.add('col', 'calendar-day', 'border', 'border-dark');
+            const dateStr = `${year}-${String(month + 1).padStart(2, '0')}-${String(day).padStart(2, '0')}`;
+            mainday.innerHTML = `<div class="calendar-day-number">${day}</div>`;
 
             //往每一天裡面加日期
-            const dateStr = `${year}-${String(month + 1).padStart(2, '0')}-${String(day).padStart(2, '0')}`;
-            mainday.innerHTML = `<div class="calendar-day-number">${day}</div>`
-
-            //把今天標示出來
             if (year === currentDate.getFullYear() && month === currentDate.getMonth() && day === currentDate.getDate()) {
                 mainday.classList.add('bg-primary', 'text-white');
             }
 
-            // 新增事件
+            //把今天標示出來
             if (todos[dateStr]) {
                 todos[dateStr].forEach((todo, index) => {
                     mainday.innerHTML += `
                         <div class="todo-item">
                             <small>${todo.text}</small>
-                            <button class="btn btn-danger btn-sm delete-btn" data-date="${dateStr}" data-id="${index}">Delete</button> 
-                        </div>`; //要設定data-set與data-id才能夠抓到是哪一天的第幾項去刪除
+                        </div>`;
                 });
             }
 
+            // 新增事件
             mainday.addEventListener('click', function () {
-                // 這裡你可以處理顯示待辦事項的邏輯
                 const todoDateInput = document.getElementById('todoDate');
                 todoDateInput.value = dateStr;
                 document.getElementById('todoText').value = '';
                 document.getElementById('todoId').value = '';
                 document.getElementById('saveBtn').style.display = 'block';
-                document.getElementById('deleteBtn').style.display = 'none';
+                document.getElementById('deleteBtn').style.display = todos[dateStr] ? 'block' : 'none';
                 const modal = new bootstrap.Modal(document.getElementById('todolist'));
                 modal.show();
             });
-
             dateRow.appendChild(mainday);
         }
 
@@ -90,22 +85,21 @@ document.addEventListener('DOMContentLoaded', function () {
             remainday.classList.add('col', 'calendar-day', 'border', 'border-dark');
             dateRow.appendChild(remainday);
         }
-
         calendarElement.appendChild(dateRow);
     }
 
     //更新header月份
     function updateHeader(year, month) {
-        document.querySelector('.chooseYear').innerText = monthNames[month];
-        document.querySelector('.chooseMonth').innerText = year;
+        document.querySelector('.chooseYear').innerText = year;
+        document.querySelector('.chooseMonth').innerText = monthNames[month];
     }
 
     //設定上個月按鈕
-    const lastBtn = document.querySelector('.last_Btn')
+    const lastBtn = document.querySelector('.last_Btn');
     lastBtn.addEventListener('click', function () {
         if (currentMonth === 0) {
             currentMonth = 11;
-            currentYear--;//已經是1月就要變成去年
+            currentYear--;
         } else {
             currentMonth--;
         }
@@ -114,7 +108,7 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
     //設定下個月按鈕
-    const nextBtn = document.querySelector('.next_Btn')
+    const nextBtn = document.querySelector('.next_Btn');
     nextBtn.addEventListener('click', function () {
         if (currentMonth === 11) {
             currentMonth = 0;
@@ -127,7 +121,7 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
     //設定跳回今天的按鈕
-    const todayBtn = document.querySelector('.today_Btn')
+    const todayBtn = document.querySelector('.today_Btn');
     todayBtn.addEventListener('click', function () {
         currentMonth = currentDate.getMonth();
         currentYear = currentDate.getFullYear();
@@ -160,33 +154,26 @@ document.addEventListener('DOMContentLoaded', function () {
         modal.hide();
     });
 
-    document.querySelector('.calendar-days').addEventListener('click', function (event) {
-        if (event.target.classList.contains('delete-btn')) {
-                const date = event.target.dataset.date;
-                const index = event.target.dataset.id;
-                const todos = loadTodos();
+    document.getElementById('deleteBtn').addEventListener('click', function () {
+        const date = document.getElementById('todoDate').value;
+        const todos = loadTodos();
 
-                todos[date].splice(index, 1); //刪除index位置1個
-                if (todos[date].length === 0) { 
-                    delete todos[date]; //如果不刪除key會一直累積
-                }
+        delete todos[date];
 
-                saveTodos(todos);
-                generateCalendar(currentYear, currentMonth);
-
-        }
+        saveTodos(todos);
+        generateCalendar(currentYear, currentMonth);
+        const modal = bootstrap.Modal.getInstance(document.getElementById('todolist'));
+        modal.hide();
     });
 
     function loadTodos() {
-        return JSON.parse(localStorage.getItem('todos')) || {}; //將json轉成字串讀取
+        return JSON.parse(localStorage.getItem('todos')) || {};
     }
 
     function saveTodos(todos) {
-        localStorage.setItem('todos', JSON.stringify(todos)); //轉成json檔儲存
+        localStorage.setItem('todos', JSON.stringify(todos));
     }
-
 
     generateCalendar(currentYear, currentMonth);
     updateHeader(currentYear, currentMonth);
 });
-
