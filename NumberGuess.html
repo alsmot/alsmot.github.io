@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guess the Number</title>
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: Arial, sans-serif;
+            background-color: f0f0f0;
+        }
+
+        .container {
+            width: 300px;
+            margin: 50px auto;
+            padding: 20px;
+            border: 2px solid #ccc;
+            border-radius: 10px;
+            text-align: center;
+            font-family: Arial, sans-serif;
+        }
+
+        input {
+            padding: 10px;
+            width: 80%;
+            margin-bottom: 10px;
+            font-size: 16px;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 10px;
+            background-color: #fff;
+        }
+
+        .message {
+            margin-top: 20px;
+            font-weight: bold;
+            font-size: 18px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h2>請輸入密碼</h2>
+        <input type="text" id="guessInput" placeholder="輸入4位數字" maxlength="4">
+        <button onclick="checkGuess()">確認</button>
+        <div class="message" id="message"></div>
+    </div>
+
+    <script>
+        const correctNumber = "1624"; // 你想要用來猜的數字
+
+        function checkGuess() {
+            const userGuess = document.getElementById("guessInput").value;
+            const message = document.getElementById("message");
+
+            if (userGuess === correctNumber) {
+                message.textContent = "恭喜答對！";
+                message.style.color = "green";
+            } else {
+                message.textContent = "答錯了，再試一次！";
+                message.style.color = "red";
+            }
+        }
+    </script>
+</body>
+
+</html>
